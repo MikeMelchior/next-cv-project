@@ -5,7 +5,7 @@ type Props = {
     openState: boolean
 }
 
-const InputContainer = ( { children, openState }: Props) => {
+const InputWidget = ( { children, openState }: Props) => {
   return (
     <div className={`grid items-center md:max-w-[600px] bg-slate-50 rounded-lg ${openState ? 'grid-cols-1' : 'grid-cols-0'}`}>  
         {children}
@@ -13,4 +13,10 @@ const InputContainer = ( { children, openState }: Props) => {
   )
 }
 
-export default InputContainer
+export default InputWidget
+
+
+
+
+
+ 
