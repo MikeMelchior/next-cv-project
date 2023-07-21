@@ -11,7 +11,7 @@ type Props = {
 
 const Inputs = ( { setGeneralInfo }: Props) => {
 	return (
-		<section className="min-h-[fit-content] max-w-[600px] w-full mx-auto flex flex-col gap-[24px] lg:col-start-2 lg:row-start-1 lg:row-end-3">
+		<section className="min-h-[fit-content] max-w-[600px] w-full mx-auto flex flex-col gap-8 lg:col-start-2 lg:row-start-1 lg:row-end-3">
 			<SaveCV />
 			<HeaderInput 
 				setGeneralInfo={setGeneralInfo}

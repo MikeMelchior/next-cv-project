@@ -22,7 +22,7 @@ const ExperienceInput = (props: Props) => {
 					alt=""
 					className="w-[30px] h-[30px] auto mr-4"
 				/>
-				<h2 className="text-2xl">General Information</h2>
+				<h2 className="text-2xl">Experience</h2>
 				<Image
 					src={chevron}
 					alt=""
