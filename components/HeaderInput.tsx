@@ -32,6 +32,7 @@ const HeaderInput = ( { setGeneralInfo }: Props) => {
 				address: addressRef.current!.value,
 			}
 		)
+		setOpen(false)
 	}
 
 	let inputStyles = 'bg-slate-200 p-2 rounded-xl focus:outline-none'
