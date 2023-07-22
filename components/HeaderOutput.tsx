@@ -7,7 +7,7 @@ type Props = {
 
 const HeaderOutput = ( { generalInfo }: Props) => {
   return (
-    <div className='w-full flex flex-col'>
+    <div className='w-full flex flex-col pb-6'>
         <p className="text-3xl">{generalInfo.name}</p>
         <p className="text-base">{generalInfo.email}</p>
         <p className="text-base">{generalInfo.phone}</p>
