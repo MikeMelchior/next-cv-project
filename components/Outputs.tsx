@@ -1,16 +1,21 @@
-import { HeaderInputs } from "@/app/page";
+import { EducationInputs, HeaderInputs } from "@/app/page";
 import React from "react";
 import HeaderOutput from "./HeaderOutput";
+import EducationOutput from "./EducationOutput";
 
 type Props = {
 	generalInfo: HeaderInputs
+	educationInfo: EducationInputs[]
 };
 
-const Outputs = ( { generalInfo }: Props) => {
+const Outputs = ( { generalInfo, educationInfo }: Props) => {
 	return (
 		<div className="h-[600px] min-h-[80vh] min-w-[300px] p-[48px] bg-slate-50 text-center rounded-lg flex flex-col">
 			<HeaderOutput 
 				generalInfo={generalInfo}
+			/>
+			<EducationOutput 
+				educationInfo={educationInfo}
 			/>
 		</div>
 	);
