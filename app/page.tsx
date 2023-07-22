@@ -13,7 +13,13 @@ export interface HeaderInputs{
 }
 
 export interface EducationInputs{
-
+	degree: string
+	school: string
+	city: string
+	country: string
+	startDate: string
+	endDate: string
+	id: string
 }
 
 export interface ExperienceInputs{
@@ -30,15 +36,19 @@ const initialHeaderState = { name: '', email: '', phone: '', address: '' }
 export default function Home() {
 
 	const [generalInfo, setGeneralInfo] = useState<HeaderInputs>(initialHeaderState)
+	const [educationInfo, setEducationInfo] = useState<EducationInputs[]>([])
 
 	return (
 		<main className="grid lg:grid-cols-2 xl:grid-cols-3 p-[48px] gap-[48px]">
 			<Sidebar />
       		<Inputs 
 				setGeneralInfo={setGeneralInfo}
+				educationInfo={educationInfo}
+				setEducationInfo={setEducationInfo}
 			/>
       		<Outputs 
 				generalInfo={generalInfo}
+				educationInfo={educationInfo}
 			/>
 		</main>
 	);
