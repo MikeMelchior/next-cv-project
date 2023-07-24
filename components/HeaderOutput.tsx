@@ -1,19 +1,21 @@
-import { HeaderInputs } from '@/app/page'
-import React from 'react'
+import { HeaderInputs } from "@/app/page";
+import React from "react";
 
 type Props = {
-    generalInfo: HeaderInputs
-}
+	generalInfo: HeaderInputs;
+};
 
-const HeaderOutput = ( { generalInfo }: Props) => {
-  return (
-    <div className='w-full flex flex-col pb-6'>
-        <p className="text-3xl">{generalInfo.name}</p>
-        <p className="text-base">{generalInfo.email}</p>
-        <p className="text-base">{generalInfo.phone}</p>
-        <p className="text-base">{generalInfo.address}</p>
-    </div>
-  )
-}
+const HeaderOutput = ({ generalInfo }: Props) => {
+	return (
+		<div className="w-full flex flex-col gap-1 pb-6">
+			<p className="text-3xl">{generalInfo.name}</p>
+			<p className="text-base">{generalInfo.email}</p>
+			<div className="text-sm flex gap-4 mx-auto">
+				<p>{generalInfo.phone}</p>
+				<p>{generalInfo.address}</p>
+			</div>
+		</div>
+	);
+};
 
-export default HeaderOutput
+export default HeaderOutput;
