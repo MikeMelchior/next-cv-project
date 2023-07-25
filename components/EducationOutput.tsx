@@ -9,18 +9,21 @@ type Props = {
 const EducationOutput = ({ educationInfo }: Props) => {
 
 	return (
-		<div className={`w-full pt-6 ${educationInfo.length > 0 && "border-t-2"}`}>
+		<div className={`w-full pt-6`}>
+            {educationInfo.length > 0 &&
+			    <h2 className="font-bold text-xl text-left w-full pb-1 border-b-2 border-slate-600 mb-4">Education</h2>
+            }
 			{educationInfo.length > 0 &&
 				educationInfo.map((edu) => (
-					<div key={edu.id} className="flex justify-between text-sm">
+					<div key={edu.id} className="flex justify-between text-xs pb-6">
 						<div className="text-left">
-							<p className="font-bold text-base">{edu.degree}</p>
+							<p className="font-bold text-sm">{edu.degree}</p>
 							<p><em>{edu.school}</em></p>
 							
 						</div>
 
                         <div className="text-right">
-                            <p className="text-base">
+                            <p className="text-sm">
                                 {`
 									${getMonth(edu.startDate)} ${getYear(edu.startDate)} - 
                                     ${edu.endDate !== 'Current' 
