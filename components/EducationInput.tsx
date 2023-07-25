@@ -40,7 +40,7 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 		e.preventDefault();
 		let prev = educationInfo;
 
-		if (editID && editID?.length > 0) {
+		if (editID.length > 0) {
 			prev = educationInfo.filter((edu) => edu.id !== editID);
 			setEditID("");
 			setIsEditing(false);
@@ -127,7 +127,6 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 				<InputWrapper HTMLfor="degree" labelText="Degree">
 					<input
 						ref={degreeRef}
-						type="text"
 						id="degree"
 						name="degree"
 						placeholder="Enter Degree/Field of Study"
@@ -138,7 +137,6 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 				<InputWrapper HTMLfor="school" labelText="School">
 					<input
 						ref={schoolRef}
-						type="text"
 						id="school"
 						name="school"
 						placeholder="Institution Name"
@@ -149,7 +147,6 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 				<InputWrapper HTMLfor="city" labelText="City">
 					<input
 						ref={cityRef}
-						type="text"
 						id="city"
 						name="city"
 						placeholder="Enter City"
@@ -168,7 +165,7 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 					/>
 				</InputWrapper>
 				<div className="flex justify-between flex-wrap gap-6">
-					<InputWrapper HTMLfor="startDate" labelText="Start Date">
+					<InputWrapper HTMLfor="startDate" labelText="Start Date" classes="md:w-2/5">
 						<input
 							ref={startRef}
 							type="date"
@@ -178,7 +175,7 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 							required
 						/>
 					</InputWrapper>
-					<InputWrapper HTMLfor="endDate" labelText="End Date">
+					<InputWrapper HTMLfor="endDate" labelText="End Date" classes="md:w-2/5">
 						<input
 							ref={endRef}
 							type="date"
