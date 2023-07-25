@@ -3,7 +3,6 @@ import Inputs from "@/components/Inputs";
 import Outputs from "@/components/Outputs";
 import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
 
 export interface HeaderInputs{
 	name: string
@@ -37,6 +36,7 @@ export default function Home() {
 
 	const [generalInfo, setGeneralInfo] = useState<HeaderInputs>(initialHeaderState)
 	const [educationInfo, setEducationInfo] = useState<EducationInputs[]>([])
+	const [experienceInfo, setExperienceInfo] = useState<ExperienceInputs[]>([])
 
 	return (
 		<main className="grid lg:grid-cols-2 xl:grid-cols-3 p-[48px] gap-[48px]">
@@ -45,10 +45,13 @@ export default function Home() {
 				setGeneralInfo={setGeneralInfo}
 				educationInfo={educationInfo}
 				setEducationInfo={setEducationInfo}
+				experienceInfo={experienceInfo}
+				setExperienceInfo={setExperienceInfo}
 			/>
       		<Outputs 
 				generalInfo={generalInfo}
 				educationInfo={educationInfo}
+				experienceInfo={experienceInfo}
 			/>
 		</main>
 	);
