@@ -120,9 +120,11 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 			</div>
 			<form
 				onSubmit={handleSubmit}
-				className={`p-6 flex flex-col gap-6  ${
-					open ? "border-t-2" : "invisible h-0 p-0"
-				}`}
+				className={`${
+					open 
+					? "p-6 flex flex-col gap-6 border-t-2" 
+					: "invisible h-0 p-0"}
+				`}
 			>
 				<InputWrapper HTMLfor="degree" labelText="Degree">
 					<input

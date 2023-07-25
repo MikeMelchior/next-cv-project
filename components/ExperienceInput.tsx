@@ -115,9 +115,11 @@ const ExperienceInput = ({ experienceInfo, setExperienceInfo }: Props) => {
 			</div>
 			<form
 				onSubmit={handleSubmit}
-				className={`p-6 flex flex-col gap-6  ${
-					open ? "border-t-2" : "invisible h-0 p-0"
-				}`}
+				className={`${
+					open 
+					? "p-6 flex flex-col gap-6 border-t-2" 
+					: "invisible h-0 p-0"}
+				`}
 			>
 				<InputWrapper HTMLfor="job" labelText="Job Title">
 					<input
