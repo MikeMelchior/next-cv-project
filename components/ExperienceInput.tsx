@@ -43,22 +43,20 @@ const ExperienceInput = ({ experienceInfo, setExperienceInfo }: Props) => {
 			setIsEditing(false);
 		}
 
-		setExperienceInfo((prevState) => {
-			return [
-				...prevState,
-				{
-					jobTitle: jobRef.current!.value,
-					company: companyRef.current!.value,
-					startDate: startRef.current!.value,
-					endDate:
-						endRef.current!.value !== ""
-							? endRef.current!.value
-							: "Current",
-					description: descriptionRef.current!.value,
-					id: uuid(),
-				},
-			];
-		});
+		setExperienceInfo([
+            ...prev,
+            {
+                jobTitle: jobRef.current!.value,
+                company: companyRef.current!.value,
+                startDate: startRef.current!.value,
+                endDate:
+                    endRef.current!.value !== ""
+                        ? endRef.current!.value
+                        : "Current",
+                description: descriptionRef.current!.value,
+                id: uuid(),
+            }]
+        );
 
 		jobRef.current!.value = "";
 		companyRef.current!.value = "";
