@@ -8,9 +8,9 @@ import { EducationInputs, ExperienceInputs, HeaderInputs } from "@/app/page";
 type Props = {
 	setGeneralInfo: Dispatch<SetStateAction<HeaderInputs>> | ((prevState: HeaderInputs) => HeaderInputs)
 	educationInfo: EducationInputs[]
-	setEducationInfo: Dispatch<SetStateAction<EducationInputs[]>> | ((prevState: EducationInputs[]) => EducationInputs[])
+	setEducationInfo: Dispatch<SetStateAction<EducationInputs[]>>
 	experienceInfo: ExperienceInputs[]
-	setExperienceInfo: Dispatch<SetStateAction<ExperienceInputs[]>> | ((prevState: ExperienceInputs[]) => ExperienceInputs[])
+	setExperienceInfo: Dispatch<SetStateAction<ExperienceInputs[]>>
 };
 
 const Inputs = ( { setGeneralInfo, educationInfo, setEducationInfo, experienceInfo, setExperienceInfo }: Props) => {
