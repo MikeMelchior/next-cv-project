@@ -19,9 +19,7 @@ import DeleteButton from "./DeleteButton";
 
 type Props = {
 	educationInfo: EducationInputs[];
-	setEducationInfo:
-		| Dispatch<SetStateAction<EducationInputs[]>>
-		| ((prevState: EducationInputs[]) => EducationInputs[]);
+	setEducationInfo: Dispatch<SetStateAction<EducationInputs[]>>;
 };
 
 const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
@@ -46,21 +44,24 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 			setIsEditing(false);
 		}
 
-		setEducationInfo([
-			...prev,
-			{
-				degree: degreeRef.current!.value,
-				school: schoolRef.current!.value,
-				city: cityRef.current!.value,
-				country: countryRef.current!.value,
-				startDate: startRef.current!.value,
-				endDate:
-					endRef.current!.value !== ""
-						? endRef.current!.value
-						: "Current",
-				id: uuid(),
-			},
-		]);
+		setEducationInfo((prevState) => {
+			return [
+				...prevState,
+				{
+					degree: degreeRef.current!.value,
+					school: schoolRef.current!.value,
+					city: cityRef.current!.value,
+					country: countryRef.current!.value,
+					startDate: startRef.current!.value,
+					endDate:
+						endRef.current!.value !== ""
+							? endRef.current!.value
+							: "Current",
+					id: uuid(),
+				},
+			];
+		});
+
 		degreeRef.current!.value = "";
 		schoolRef.current!.value = "";
 		cityRef.current!.value = "";
@@ -121,9 +122,10 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 			<form
 				onSubmit={handleSubmit}
 				className={`${
-					open 
-					? "p-6 flex flex-col gap-6 border-t-2" 
-					: "invisible h-0 p-0"}
+					open
+						? "p-6 flex flex-col gap-6 border-t-2"
+						: "invisible h-0 p-0"
+				}
 				`}
 			>
 				<InputWrapper HTMLfor="degree" labelText="Degree">
@@ -167,7 +169,11 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 					/>
 				</InputWrapper>
 				<div className="flex justify-between flex-wrap gap-6">
-					<InputWrapper HTMLfor="startDate" labelText="Start Date" classes="md:w-2/5">
+					<InputWrapper
+						HTMLfor="startDate"
+						labelText="Start Date"
+						classes="md:w-2/5"
+					>
 						<input
 							ref={startRef}
 							type="date"
@@ -177,7 +183,11 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 							required
 						/>
 					</InputWrapper>
-					<InputWrapper HTMLfor="endDate" labelText="End Date" classes="md:w-2/5">
+					<InputWrapper
+						HTMLfor="endDate"
+						labelText="End Date"
+						classes="md:w-2/5"
+					>
 						<input
 							ref={endRef}
 							type="date"

@@ -19,9 +19,7 @@ import { v4 as uuid } from "uuid";
 
 type Props = {
 	experienceInfo: ExperienceInputs[];
-	setExperienceInfo:
-		| Dispatch<SetStateAction<ExperienceInputs[]>>
-		| ((prevState: ExperienceInputs[]) => ExperienceInputs[]);
+	setExperienceInfo: Dispatch<SetStateAction<ExperienceInputs[]>>;
 };
 
 const ExperienceInput = ({ experienceInfo, setExperienceInfo }: Props) => {
@@ -45,20 +43,23 @@ const ExperienceInput = ({ experienceInfo, setExperienceInfo }: Props) => {
 			setIsEditing(false);
 		}
 
-		setExperienceInfo([
-			...prev,
-			{
-				jobTitle: jobRef.current!.value,
-				company: companyRef.current!.value,
-				startDate: startRef.current!.value,
-				endDate:
-					endRef.current!.value !== ""
-						? endRef.current!.value
-						: "Current",
-				description: descriptionRef.current!.value,
-				id: uuid(),
-			},
-		]);
+		setExperienceInfo((prevState) => {
+			return [
+				...prevState,
+				{
+					jobTitle: jobRef.current!.value,
+					company: companyRef.current!.value,
+					startDate: startRef.current!.value,
+					endDate:
+						endRef.current!.value !== ""
+							? endRef.current!.value
+							: "Current",
+					description: descriptionRef.current!.value,
+					id: uuid(),
+				},
+			];
+		});
+
 		jobRef.current!.value = "";
 		companyRef.current!.value = "";
 		startRef.current!.value = "";
@@ -116,9 +117,10 @@ const ExperienceInput = ({ experienceInfo, setExperienceInfo }: Props) => {
 			<form
 				onSubmit={handleSubmit}
 				className={`${
-					open 
-					? "p-6 flex flex-col gap-6 border-t-2" 
-					: "invisible h-0 p-0"}
+					open
+						? "p-6 flex flex-col gap-6 border-t-2"
+						: "invisible h-0 p-0"
+				}
 				`}
 			>
 				<InputWrapper HTMLfor="job" labelText="Job Title">
