@@ -44,8 +44,9 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 			setIsEditing(false);
 		}
 
-		setEducationInfo([
-				...prev,
+		setEducationInfo((prevState) => {
+			return [
+				...prevState,
 				{
 					degree: degreeRef.current!.value,
 					school: schoolRef.current!.value,
@@ -57,8 +58,9 @@ const EducationInput = ({ educationInfo, setEducationInfo }: Props) => {
 							? endRef.current!.value
 							: "Current",
 					id: uuid(),
-				}],
-			);
+				},
+			];
+		});
 
 		degreeRef.current!.value = "";
 		schoolRef.current!.value = "";
